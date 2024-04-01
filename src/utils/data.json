@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "The Gourmet Kitchen",
+    "location": {
+      "address": "123 Elm Street, Springfield",
+      "latitude": "40.712776",
+      "longitude": "-74.005974"
+    },
+    "cuisine": "Italian",
+    "averageCostForTwo": 50,
+    "popularDishes": ["Spaghetti Carbonara", "Margherita Pizza", "Tiramisu"]
+  },
+  {
+    "id": 2,
+    "name": "Curry Leaves",
+    "location": {
+      "address": "456 Maple Avenue, Hill Valley",
+      "latitude": "34.052235",
+      "longitude": "-118.243683"
+    },
+    "cuisine": "Indian",
+    "averageCostForTwo": 30,
+    "popularDishes": ["Butter Chicken", "Paneer Tikka", "Mango Lassi"]
+  },
+  {
+    "id": 3,
+    "name": "Sushi Dreams",
+    "location": {
+      "address": "789 Pine Street, Twin Peaks",
+      "latitude": "35.689487",
+      "longitude": "139.691706"
+    },
+    "cuisine": "Japanese",
+    "averageCostForTwo": 60,
+    "popularDishes": ["Salmon Nigiri", "California Roll", "Miso Soup"]
+  },
+  {
+    "id": 4,
+    "name": "Burger Hub",
+    "location": {
+      "address": "101 Oak Street, Gotham City",
+      "latitude": "40.712776",
+      "longitude": "-74.005974"
+    },
+    "cuisine": "American",
+    "averageCostForTwo": 20,
+    "popularDishes": ["Classic Cheeseburger", "Loaded Fries", "Milkshake"]
+  },
+  {
+    "id": 5,
+    "name": "Taco Territory",
+    "location": {
+      "address": "202 Birch Road, Metropolis",
+      "latitude": "29.760427",
+      "longitude": "-95.369803"
+    },
+    "cuisine": "Mexican",
+    "averageCostForTwo": 25,
+    "popularDishes": ["Al Pastor Tacos", "Guacamole", "Churros"]
+  },
+  {
+    "id": 6,
+    "name": "Dragon's Breath",
+    "location": {
+      "address": "303 Cedar Lane, King's Landing",
+      "latitude": "39.904200",
+      "longitude": "116.407396"
+    },
+    "cuisine": "Chinese",
+    "averageCostForTwo": 40,
+    "popularDishes": ["Kung Pao Chicken", "Peking Duck", "Egg Fried Rice"]
+  },
+  {
+    "id": 7,
+    "name": "Baguette & Co.",
+    "location": {
+      "address": "404 Palm Way, Paris",
+      "latitude": "48.856614",
+      "longitude": "2.352222"
+    },
+    "cuisine": "French",
+    "averageCostForTwo": 55,
+    "popularDishes": ["Croissant", "Quiche Lorraine", "Crème Brûlée"]
+  },
+  {
+    "id": 8,
+    "name": "The Kebab Stand",
+    "location": {
+      "address": "505 Willow Road, Istanbul",
+      "latitude": "41.008238",
+      "longitude": "28.978359"
+    },
+    "cuisine": "Turkish",
+    "averageCostForTwo": 35,
+    "popularDishes": ["Shish Kebab", "Baklava", "Turkish Tea"]
+  },
+  {
+    "id": 9,
+    "name": "The Green Bowl",
+    "location": {
+      "address": "606 Pineapple St, San Francisco",
+      "latitude": "37.774929",
+      "longitude": "-122.419416"
+    },
+    "cuisine": "Vegetarian",
+    "averageCostForTwo": 45,
+    "popularDishes": ["Quinoa Salad", "Veggie Burger", "Smoothie Bowl"]
+  },
+  {
+    "id": 10,
+    "name": "Steak House",
+    "location": {
+      "address": "707 Cherry Ave, New York City",
+      "latitude": "40.712776",
+      "longitude": "-74.005974"
+    },
+    "cuisine": "Steakhouse",
+    "averageCostForTwo": 70,
+    "popularDishes": ["Ribeye Steak", "Mashed Potatoes", "Caesar Salad"]
+  }
+]

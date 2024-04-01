@@ -1,0 +1,12 @@
+# Node modules
+node_modules
+
+# Prod
+.parcel-cache
+dist
+
+# IDE and editor files
+.vscode
+
+# OS generated files
+.DS_Store
