@@ -1,17 +1,59 @@
-const Header = () => {
-  return (
-    <div className="p-4 flex justify-between items-center">
-      <div className="logo">
-        <h1>Swiggy</h1>
-      </div>
+import swiggyMainIcon from "../assets/icons/swiggy-main-icon.svg";
+import searchIcon from "../assets/icons/search-icon.svg";
+import discountIcon from "../assets/icons/discount-icon.svg";
+import settingsIcon from "../assets/icons/settings-icon.svg";
+import userIcon from "../assets/icons/user-icon.svg";
+import { Link } from "react-router-dom";
 
+const Header = () => {
+  const navItems = [
+    {
+      name: "Search",
+      icon: searchIcon,
+      path: "search",
+    },
+    {
+      name: "Offers",
+      superscript: "NEW",
+      icon: discountIcon,
+      path: "",
+    },
+    {
+      name: "Help",
+      icon: settingsIcon,
+      path: "support",
+    },
+    {
+      name: "Sign In",
+      icon: userIcon,
+      path: "",
+    },
+  ];
+
+  return (
+    <div className="m-auto flex max-w-7xl items-center justify-between p-4">
+      <div className="transform transition duration-300 hover:scale-110">
+        <Link to="/">
+          <img src={swiggyMainIcon} alt="" />
+        </Link>
+      </div>
       <nav>
         <ul className="flex">
-          <li className="mx-2">Search</li>
-          <li className="mx-2">Offers</li>
-          <li className="mx-2">Help</li>
-          <li className="mx-2">Sign In</li>
-          <li className="mx-2">Cart</li>
+          {navItems.map((item) => {
+            return (
+              <Link to={item.path}>
+                <li className="mx-6 flex items-center hover:text-[#fc8019]">
+                  <span className="mr-2">
+                    <img src={item.icon} alt={item.name} />
+                  </span>
+                  {item.name}
+                  {item.superscript && (
+                    <sup className="text-[#fc8019]">{item.superscript}</sup>
+                  )}
+                </li>
+              </Link>
+            );
+          })}
         </ul>
       </nav>
     </div>

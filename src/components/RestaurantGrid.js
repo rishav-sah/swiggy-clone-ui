@@ -14,6 +14,7 @@ const RestaurantGrid = () => {
     const json = await data.json();
     setStateVariable(json);
   };
+  console.log(listOfRestaurants);
 
   function setStateVariable(jsonData) {
     if (!jsonData) return;
@@ -25,9 +26,9 @@ const RestaurantGrid = () => {
   };
 
   return (
-    <section>
-      <h1 className="text-bold font-bold text-2xl">Restaurants with online food delivery in Hyderabad</h1>
-      <div className="grid place-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <section className="max-w-6xl m-auto">
+      <h1 className="my-4 text-bold font-bold text-2xl">Restaurants with online food delivery in Hyderabad</h1>
+      <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 place-items-center">
         {
           listOfRestaurants.map((restaurant) => {
             console.log(restaurant)
@@ -40,6 +41,5 @@ const RestaurantGrid = () => {
     </section>
   );
 };
-
 
 export default RestaurantGrid;

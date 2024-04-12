@@ -3,7 +3,7 @@ import RestaurantGrid from "./components/RestaurantGrid";
 
 const App = () => {
   return (
-   <div className="container mx-auto">
+   <div className="w-full">
     <Header />
     <RestaurantGrid />
    </div>
