@@ -41,7 +41,7 @@ const Header = () => {
         <ul className="flex">
           {navItems.map((item) => {
             return (
-              <Link to={item.path}>
+              <Link key={item.name}  to={item.path}>
                 <li className="mx-6 flex items-center hover:text-[#fc8019]">
                   <span className="mr-2">
                     <img src={item.icon} alt={item.name} />

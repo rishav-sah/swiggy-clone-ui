@@ -2,7 +2,6 @@ import { IMG_CDN_URL } from "../utils/constants";
 import ratingIcon from "../assets/icons/rating-icon.svg";
 
 const RestaurantCard = (props) => {
-  console.log(`${IMG_CDN_URL}/${props.cloudinaryImageId}`)
   return (
     <div className="w-64 min-h-80 max-h-96 rounded overflow-hidden shadow-lg transform transition duration-200 hover:scale-95">
       <figure className="relative">
