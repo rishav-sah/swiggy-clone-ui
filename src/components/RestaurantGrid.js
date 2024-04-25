@@ -1,21 +1,23 @@
 import RestaurantCard from "./RestaurantCard";
-import { SWIGGY_MAIN_URL } from "../utils/constants";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import useOnlineStatus from "../hooks/useOnlineStatus";
 
 const RestaurantGrid = () => {
+  const onlineStatus = useOnlineStatus();
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   
   useEffect(() => {
     fetchData();
   }, []);
-
+  
   async function fetchData() {
     const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.406498&lng=78.47724389999999&page_type=DESKTOP_WEB_LISTING");
     const json = await data.json();
     setStateVariable(json);
   };
   console.log(listOfRestaurants);
-
+  
   function setStateVariable(jsonData) {
     if (!jsonData) return;
     jsonData.data.cards.map((item) => {
@@ -24,16 +26,20 @@ const RestaurantGrid = () => {
       };
     });
   };
-
+  
+  if (!onlineStatus) return <h1>No internet connection...</h1>
+  
   return (
     <section className="max-w-6xl m-auto">
       <h1 className="my-4 text-bold font-bold text-2xl">Restaurants with online food delivery in Hyderabad</h1>
       <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-4 place-items-center">
         {
-          listOfRestaurants.map((restaurant) => {
+          !listOfRestaurants.length ? <div>Loading...</div> : listOfRestaurants.map((restaurant) => {
             console.log(restaurant)
             return (
-              <RestaurantCard key={restaurant.info.id} {...restaurant.info} />
+              <Link key={restaurant.info.id} to={`/restaurant/${restaurant.info.id}`}>
+                <RestaurantCard {...restaurant.info} />
+              </Link>
             );
           })
         }

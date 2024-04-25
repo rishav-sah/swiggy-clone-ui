@@ -1,30 +1,41 @@
 import { useEffect, useState } from "react";
+import ratingIcon from "../assets/icons/rating-icon.svg";
+import { useParams } from "react-router-dom";
+import useRestaurantMenu from "../hooks/useRestaurantMenu";
 
 const RestaurantMenu = () => {
+  const { resId } = useParams();
+  const resInfo = useRestaurantMenu(resId);
 
-  const [resInfo, setResInfo] = useState(null);
+  const { name, avgRatingString, totalRatingsString, costForTwoMessage  } = resInfo?.cards[2]?.card?.card?.info || "";
+  const {itemCards, title } = resInfo?.cards[4].groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card || [];
 
-  useEffect(() => {
-   fetchMenu(); 
-  }, [])
-
-  async function fetchMenu() {
-    const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=17.406498&lng=78.47724389999999&restaurantId=437301&catalog_qa=undefined&isMenuUx4=true&submitAction=ENTER");
-    const json = await data.json();
-    setResInfo(json.data)
-
-    console.log(json.data.cards[0]?.card.card.text) // restaurant name
-    console.log(json.data.cards[2].card.card.info); // restaurant information
-    console.log(json.data.cards[4].groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards) // Recommended cuisines
-  }
-
-  return (
-    <div className="container">
-      <div className="max-w-3xl"></div>
-      <h1 className="text-2xl">{resInfo?.cards[0]?.card?.card?.text}</h1>
-      <h2>Menu</h2>
+  return !resInfo ? (
+    <h1>Loading...</h1>
+  ) : (
+    <div className="w-full">
+      <div className="m-auto max-w-3xl">
+        <h1 className="text-2xl font-bold">{name}</h1>
+        <div className="m-2 flex flex-row items-center">
+          <img src={ratingIcon} alt={avgRatingString} />
+          <span className="pl-1 font-semibold">({totalRatingsString}) &middot; {costForTwoMessage}</span>
+        </div>
+        <div>
+          <h2 className="text-lg font-semibold">
+            {title} ({itemCards?.length})
+          </h2>
+          {itemCards?.map((item) => {
+            const {id, name, defaultPrice, price } = item.card.info
+            return (
+              <ul key={id}>
+                <li className="list-disc">{name} - {(price || defaultPrice)/100}</li>
+              </ul>
+            );
+          })}
+        </div>
+      </div>
     </div>
-  )
+  );
 };
 
 export default RestaurantMenu;
